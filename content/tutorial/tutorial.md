@@ -740,7 +740,7 @@ Ahora podemos cambiar la función `handleClick` del componente Board para retorn
 ```javascript{3-5}
   handleClick(i) {
     const squares = this.state.squares.slice();
-    if (calculateWinner(squares) || squares[i]) {
+    if (squares[i] || calculateWinner(squares)) {
       return;
     }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
@@ -847,7 +847,7 @@ El componente Board ahora se ve así:
 class Board extends React.Component {
   handleClick(i) {
     const squares = this.state.squares.slice();
-    if (calculateWinner(squares) || squares[i]) {
+    if (squares[i] || calculateWinner(squares)) {
       return;
     }
     squares[i] = this.state.xIsNext ? 'X' : 'O';
